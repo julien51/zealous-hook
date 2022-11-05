@@ -44,7 +44,9 @@ const handler = async (event) => {
     if (!results.data.tokens[0]) {
       return {
         statusCode: 200,
-        body: JSON.stringify({}),
+        body: JSON.stringify({
+          data: '0x'
+        }),
       }
     }
     const token = results.data.tokens[0]
