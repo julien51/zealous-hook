@@ -1,0 +1,23 @@
+{
+  "name": "zealous-hook",
+  "version": "1.0.0",
+  "description": "This is a serverless function built for Zealous's lock When it receives a request, it will check if the user owns any token in a list of contract and if the user does, it will yield the right `data` object.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julien51/zealous-hook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julien51/zealous-hook/issues"
+  },
+  "homepage": "https://github.com/julien51/zealous-hook#readme",
+  "dependencies": {
+    "cross-fetch": "^3.1.5",
+    "ethers": "^5.7.2"
+  }
+}
