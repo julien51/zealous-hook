@@ -1,5 +1,5 @@
 const ethers = require('ethers')
-const partners = require('../../../../../partners')
+const partners = require('../../../partners')
 const fetch = require('cross-fetch')
 const { ApolloClient, gql, HttpLink, InMemoryCache } = require('@apollo/client/core')
 
