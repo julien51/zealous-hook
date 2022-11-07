@@ -1,5 +1,4 @@
 const ethers = require('ethers')
-const partners = require('../../../partners')
 const fetch = require('cross-fetch')
 const { ApolloClient, gql, HttpLink, InMemoryCache } = require('@apollo/client/core')
 
@@ -34,6 +33,7 @@ const handler = async (event) => {
           tokenId
           contract
           owner
+          kind
         }
       }
     `
@@ -50,7 +50,13 @@ const handler = async (event) => {
       }
     }
     const token = results.data.tokens[0]
-    const data = ethers.utils.defaultAbiCoder.encode(['address', 'uint'], [token.contract, token.tokenId])
+    let data
+    if (erc721) {
+      data = ethers.utils.defaultAbiCoder.encode(['address', 'uint'], [token.contract, ethers.constants.MaxUint256])
+    } else {
+      data = ethers.utils.defaultAbiCoder.encode(['address', 'uint'], [token.contract, token.tokenId])
+    }
+
     return {
       statusCode: 200,
       body: JSON.stringify({
