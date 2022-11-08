@@ -51,7 +51,7 @@ const handler = async (event) => {
     }
     const token = results.data.tokens[0]
     let data
-    if (erc721) {
+    if (token.kind === 'erc721') {
       data = ethers.utils.defaultAbiCoder.encode(['address', 'uint'], [token.contract, ethers.constants.MaxUint256])
     } else {
       data = ethers.utils.defaultAbiCoder.encode(['address', 'uint'], [token.contract, token.tokenId])
